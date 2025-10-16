@@ -1,5 +1,5 @@
 ---
-- hosts: all
+- hosts: 172.31.27.110
   become: yes
   tasks:
   - name: I want to isntall Webserver (sudo apt-get install apache2 -y)
