@@ -1,0 +1,8 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+    -name: i want to isntall Webserver(sudo apt-get install apached2 -y_
+      apt:
+         name: apache2
+	       state:  present
