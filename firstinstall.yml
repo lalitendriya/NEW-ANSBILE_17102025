@@ -1,0 +1,15 @@
+---
+- host: all
+  tasks:
+    - name: install git (sudo apt-get install git )
+      apt:
+        name: git 
+        state: present 
+    - name: install tree (sudo apt-get install tree)
+      apt:
+        name: tree
+        state: present
+    - name: install wget(sudo apt-get install wget )
+      apt:
+        name: wget
+        state: present
