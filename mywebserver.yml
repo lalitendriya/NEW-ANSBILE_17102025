@@ -2,7 +2,7 @@
 - hosts: all
   become: yes
   tasks:
-     - name:  Install Apache2 package
+     - name:  i want to isntall webserver on ansbile nodes(sudo apt-get install apache2 -y)
        apt:
         name: apache2
         state: present
