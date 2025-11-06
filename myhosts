@@ -1,4 +1,4 @@
-[mywebserbers]
+[mywebservers]
 172.31.27.110
 
 [mywebservers:vars]
