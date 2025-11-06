@@ -1,5 +1,5 @@
 - name: Install and Start Apache2 on Debian
-  hosts: mywebserve123  # Replace with your inventory group/host
+  hosts: mywebservers  # Replace with your inventory group/host
   become: yes                 # Use privilege escalation (sudo) for installation and service control
 
   tasks:
@@ -9,11 +9,11 @@
 
     - name: Install Apache2 package
       ansible.builtin.apt:
-        name: apache2
+        name: "{{mywebpackage}}"
         state: present    # Ensures the package is installed (present)
 
     - name: Ensure Apache2 service is started and enabled
       ansible.builtin.service:
-        name: apache2
+        name: "{{mywebpackage}}"
         state: started    # Ensures the service is running
         enabled: yes      # Ensures the service starts on boot
