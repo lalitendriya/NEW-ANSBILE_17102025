@@ -1,14 +1,19 @@
-- name: Install and Start Apache2 on Debian
-  hosts: mywebservers  # Replace with your inventory group/host  become: yes                 # Use privilege escalation (sudo) for installation and service control
-  tasks:
+---
+- name: Uninstall Apache2 on Debian
+  hosts: webservers
+  become: true  # This enables privilege escalation (sudo)
 
+  tasks:
     - name: Stop Apache2 service
       ansible.builtin.service:
         name: "{{mywebpackage}}"
-        state: stopped      # Explicitly stop the service before removal
-        enabled: no         # Ensure it won't start on the next reboot
+        state: stopped
+        enabled: false
 
-    - name: Remove Apache2 package
+    - name: Remove Apache2 package and its configuration files
       ansible.builtin.apt:
         name: "{{mywebpackage}}"
-        state: absent       # The key to uninstallation!
+        state: absent
+        purge: true # This ensures configuration files are also removed
+        autoclean: true # Removes downloaded package files
+        autoremove: true # Removes packages that were automatically installed to satisfy dependencies
