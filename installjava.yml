@@ -3,11 +3,6 @@
   hosts: mywebservers # Replace with your target host group
   become: true # Run commands with sudo privileges
 
-  tasks:
-    - name: Update apt package index
-      ansible.builtin.apt:
-        update_cache: yes
-
     - name: Install OpenJDK 17 JRE
       ansible.builtin.apt:
         name: "{{mywebpackage}}"
@@ -20,4 +15,4 @@
 
     - name: Display Java version
       ansible.builtin.debug:
-        var: java_version_output.stderr # Java version is often printed to stderr
+        var: java_version_output.stderr # Java version
