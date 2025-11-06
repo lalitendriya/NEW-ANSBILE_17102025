@@ -1,5 +1,5 @@
 - name: Install and Start Apache2 on Debian
-  hosts: mywebservers  # Replace with your inventory group/host
+  hosts: mywebserve123  # Replace with your inventory group/host
   become: yes                 # Use privilege escalation (sudo) for installation and service control
 
   tasks:
