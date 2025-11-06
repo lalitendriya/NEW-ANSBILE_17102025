@@ -1,20 +1,19 @@
 ---
-- name: Uninstall Apache2 on Debian
+- name: Install and configure Apache2 on Debian
   hosts: mywebservers
-  become: true  # This enables privilege escalation (sudo)
-
+  become: yes  # This activates sudo privileges for all tasks
   tasks:
-
-    - name: Stop Apache2 service
-      ansible.builtin.service:
-        name: "{{mywebpackage}}"
-        state: stopped
-        enabled: false
-
-    - name: Remove Apache2 package and its configuration files
+    - name: Update apt package cache
+      ansible.builtin.apt:
+        update_cache: yes
+      
+    - name: Install apache2 package
       ansible.builtin.apt:
         name: "{{mywebpackage}}"
-        state: absent
-        purge: true # This ensures configuration files are also removed
-        autoclean: true # Removes downloaded package files
-        autoremove: true # Removes packages that were automatically installed to satisfy dependencies
+        state: latest
+      
+    - name: Ensure apache2 service is running and enabled
+      ansible.builtin.service:
+        name: "{{mywebpackage}}"
+        state: started
+        enabled: yes
