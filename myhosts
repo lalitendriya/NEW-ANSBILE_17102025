@@ -1,6 +1,6 @@
 [mywebserbers]
 172.31.27.110
 
-[myappservers:vars]
+[mywebservers:vars]
 key=value
 mywebpackage=apache2
