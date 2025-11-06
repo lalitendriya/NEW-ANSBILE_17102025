@@ -1,9 +1,10 @@
 ---
 - name: Uninstall Apache2 on Debian
-  hosts: webservers
+  hosts: mywebservers
   become: true  # This enables privilege escalation (sudo)
 
   tasks:
+
     - name: Stop Apache2 service
       ansible.builtin.service:
         name: "{{mywebpackage}}"
