@@ -10,8 +10,8 @@
   - name: i want to copy this file
     copy:
        src: testfile
-       dest: home/lalit/newfolder/testfile
-
+       dest: /home/lalit/myfolder
+       
 
 
 
