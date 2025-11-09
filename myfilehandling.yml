@@ -1,0 +1,22 @@
+---
+- hosts: 172.31.27.110
+  become: yes
+  tasks:
+   - include_task: myfile.yml
+   - name: I want to create a file
+     file: 
+       path: /home/lalit/myfolder
+       state: directory
+   - name: i want to copy this file
+     copy:
+       src: testfile
+       dest: home/lalit/myfolder/testfile
+
+
+
+
+
+
+
+
+
