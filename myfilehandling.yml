@@ -16,11 +16,19 @@
     template: 
          src: myindex.j2
          dest: /var/www/html/index.html
+    notify: restartwebserver      
   - name: I want do download the internet file
     get_url:
         url: https://download.mozilla.org/?product=firefox-latest-ssl&os=linux64&lang=en-US
         dest: /home/lalit/firstfolder
         force_basic_auth: yes
+  handlers:
+  - name: restartwebserver
+    service:
+      name: apache2
+      state: restarted
+
+
 
 
 
