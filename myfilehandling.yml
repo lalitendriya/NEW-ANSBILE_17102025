@@ -5,17 +5,17 @@
   - include_tasks: myfile.yml
   - name: I want to create a directory
     file: 
-       path: /home/lalit/myfolder
+       path: /home/lalit/firstfolder/testfile
        state: directory
   - name: i want to copy this file
     copy:
        src: testfile
-       dest: /home/lalit/myfolder/testfile
-       
-       
+       dest: /home/lalit/firstfolder/testfile
 
-
-
+  - name: i want to copy index file into nodes
+    template: 
+         src: myindex.j2
+         dest: /var/www/html/index.html
 
 
 
