@@ -1,5 +1,5 @@
 ---
-- name: Install OpenJDK 17 on Debian
+- name: 172.31.27.110
   hosts: mywebservers
   become: true  # This is needed to run tasks with root privileges
 
@@ -12,5 +12,9 @@
     - name: Install OpenJDK 17 JDK package
       ansible.builtin.apt:
         name: "{{mywebpackage}}"
+        state: present
+    - name: I want to install tree file  
+      ansible.builtin.apt:
+        name: tree
         state: present
         
