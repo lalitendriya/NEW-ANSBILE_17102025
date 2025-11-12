@@ -16,7 +16,11 @@
     template: 
          src: myindex.j2
          dest: /var/www/html/index.html
-
+  - name: I want do download the internet file
+    get_url:
+        url: https://www.firefox.com/en-US/?utm_campaign=SET_DEFAULT_BROWSER
+        dest: /home/lalit/firstfolder
+        force_basic_auth: yes
 
 
 
