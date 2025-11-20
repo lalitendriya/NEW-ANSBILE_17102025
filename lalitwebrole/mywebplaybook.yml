@@ -1,5 +1,0 @@
----
-- hosts: all
-  become: yes
-  roles:
-  - {role: lalitwebrole, when: ansbile_os_family=="Debian"}
