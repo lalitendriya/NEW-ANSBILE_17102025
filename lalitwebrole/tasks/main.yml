@@ -1,3 +1,9 @@
 #SPDX-License-Identifier: MIT-0
 ---
-# tasks file for lalitwebrole
+# tasks file for lalitwebrol
+
+    - name: Install OpenJDK 17 JDK package
+      ansible.builtin.apt:
+        name: "{{mywebpackage}}"
+        state: present
+ 
